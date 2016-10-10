@@ -1,8 +1,8 @@
-package main
+package heapsort
 
-import "os"
+/*import "os"
 import "strconv"
-import "fmt"
+import "fmt"*/
 
 //Heapsort for integers in Golang
 //based on Professor Mark Allen Weiss' solution in C
@@ -37,7 +37,7 @@ func PercDown(A []int, i int, N int) {
 	A[i] = Tmp
 }
 
-func Heapsort(A []int, N int) {
+func Heapsort(A []int, N int) ([]int, int) {
 	i := N
 	for i = N / 2; i >= 0; i-- { //Build Heapsort
 		PercDown(A, i, N)
@@ -47,9 +47,12 @@ func Heapsort(A []int, N int) {
 		Swap(&A[0], &A[i]) //DeleteMax
 		PercDown(A, 0, i)
 	}
+	return A, 1
 }
 
-func main() {
+
+/*func main() {
+
 	//user should pass array of numbers without brackets or commas
 	arg := os.Args[1:]
 
@@ -86,4 +89,4 @@ func main() {
 	   Swap(pj,pk)
 	   fmt.Printf("after: J:%d, K:%d\n", *pj, *pk)
 	*/
-}
+//}
